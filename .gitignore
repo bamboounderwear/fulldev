@@ -10,6 +10,10 @@ node_modules
 dist/
 .netlify/
 
+# cloudflare
+.wrangler/
+.dev.vars
+
 # misc
 .DS_Store
 *.pem
