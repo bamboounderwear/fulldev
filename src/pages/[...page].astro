@@ -1,0 +1,46 @@
+---
+import { getCollection, getEntry, render } from "astro:content"
+
+import Layout from "@/components/layout.astro"
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages")
+  return pages.map((page) => {
+    return {
+      params: {
+        page: page.id === "index" ? undefined : page.id,
+      },
+      props: page,
+    }
+  })
+}
+
+const page = Astro.props
+const { Content } = await render(Astro.props)
+
+const indexLayout = await getEntry("layouts", "index")
+const typeLayout = page.data.type && (await getEntry("layouts", page.data.type))
+---
+
+<Layout
+  {...indexLayout?.data}
+  {...typeLayout?.data}
+  {...page.data}
+  headers={[
+    ...(indexLayout?.data?.headers || []),
+    ...(typeLayout?.data?.headers || []),
+    ...(page.data?.headers || []),
+  ]}
+  sections={[
+    ...(page.data?.sections || []),
+    ...(typeLayout?.data?.sections || []),
+    ...(indexLayout?.data?.sections || []),
+  ]}
+  footers={[
+    ...(indexLayout?.data?.footers || []),
+    ...(typeLayout?.data?.footers || []),
+    ...(page.data?.footers || []),
+  ]}
+>
+  <Content />
+</Layout>
