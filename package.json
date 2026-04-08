@@ -8,11 +8,15 @@
     "start": "astro dev",
     "check": "astro check",
     "preview": "astro preview",
+    "preview:cf": "wrangler dev",
     "build": "astro build",
     "build:prod": "astro check && astro build",
-    "build:test": "astro check && astro build && astro preview --host"
+    "build:test": "astro check && astro build && astro preview --host",
+    "deploy": "astro build && wrangler deploy",
+    "deploy:prod": "astro check && astro build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.0.0",
     "@astrojs/sitemap": "^3.6.0",
     "@fontsource/inter": "^5.2.8",
     "@tailwindcss/vite": "^4.1.14",
@@ -36,6 +40,7 @@
     "@types/node": "^24.8.1",
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "^0.7.0"
+    "prettier-plugin-tailwindcss": "^0.7.0",
+    "wrangler": "^4.0.0"
   }
 }
