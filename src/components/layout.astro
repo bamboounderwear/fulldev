@@ -168,7 +168,7 @@ const transformedImage = image?.src
     class="text-foreground bg-background font-base @container overscroll-none antialiased"
     id={Astro.url.pathname}
   >
-    {headers?.map((header) => <Block {...header} />)}
+    {headers?.map(({ type, ...rest }) => <Block block={type} {...rest} />)}
     <main class="@container flex flex-col">
       <Block
         data-cms-bind="#"
@@ -179,14 +179,14 @@ const transformedImage = image?.src
         <slot />
       </Block>
       {
-        sections?.map((section, i) => (
+        sections?.map(({ type, ...rest }, i) => (
           <div data-cms-bind={`#sections[${i}]`} data-cms-bind-style="sidebar">
-            <Block {...section} />
+            <Block block={type} {...rest} />
           </div>
         ))
       }
     </main>
-    {footers?.map((footer) => <Block {...footer} />)}
+    {footers?.map(({ type, ...rest }) => <Block block={type} {...rest} />)}
   </body><style>
     body {
       font-family: var(--font-base);
