@@ -11,12 +11,14 @@ import { cta3Schema } from "@/schemas/blocks/cta-3"
 import { features1Schema } from "@/schemas/blocks/features-1"
 import { hero1Schema } from "@/schemas/blocks/hero-1"
 import { hero2Schema } from "@/schemas/blocks/hero-2"
+import { logos2Schema } from "@/schemas/blocks/logos-2"
 import { message1Schema } from "@/schemas/blocks/message-1"
 import { pricings1Schema } from "@/schemas/blocks/pricings-1"
 import { pricings2Schema } from "@/schemas/blocks/pricings-2"
 import { pricingsEmbed1Schema } from "@/schemas/blocks/pricings-embed-1"
 import { reviews1Schema } from "@/schemas/blocks/reviews-1"
 import { reviews4Schema } from "@/schemas/blocks/reviews-4"
+import { reviews5Schema } from "@/schemas/blocks/reviews-5"
 import { services1Schema } from "@/schemas/blocks/services-1"
 import { trainers1Schema } from "@/schemas/blocks/trainers-1"
 
@@ -55,6 +57,9 @@ export const sectionSchema = (ctx: SchemaContext) =>
     hero2Schema(ctx).extend({
       type: z.literal("hero-2"),
     }),
+    logos2Schema(ctx).extend({
+      type: z.literal("logos-2"),
+    }),
     message1Schema(ctx).extend({
       type: z.literal("message-1"),
     }),
@@ -72,6 +77,9 @@ export const sectionSchema = (ctx: SchemaContext) =>
     }),
     reviews4Schema(ctx).extend({
       type: z.literal("reviews-4"),
+    }),
+    reviews5Schema(ctx).extend({
+      type: z.literal("reviews-5"),
     }),
     services1Schema(ctx).extend({
       type: z.literal("services-1"),
