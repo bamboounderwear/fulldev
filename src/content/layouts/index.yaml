@@ -18,3 +18,29 @@ headers:
         href: /docs/components/
       - text: Blocks
         href: /blocks/
+footers:
+  - type: footer-1
+    logo:
+      src: ../../assets/logo-fulldev.svg
+      alt: fulldev/ui logo
+      text: fulldev/ui
+      href: /
+    description: A complete Astro UI component and block library for content-driven websites.
+    socials:
+      - https://x.com/silveltm
+      - https://github.com/bamboounderwear/fulldev
+    menus:
+      - text: Product
+        links:
+          - text: Components
+            href: /docs/components/
+          - text: Blocks
+            href: /blocks/
+          - text: Documentation
+            href: /docs/
+      - text: Resources
+        links:
+          - text: GitHub
+            href: https://github.com/bamboounderwear/fulldev
+          - text: Twitter
+            href: https://x.com/silveltm
